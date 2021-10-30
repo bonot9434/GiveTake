@@ -19,6 +19,7 @@
 //= require turbolinks
 //= require_tree .
 
+// タブ
 $(document).on('turbolinks:load', function() {
   $(function() {
     $('.tab').click(function(){
@@ -31,6 +32,7 @@ $(document).on('turbolinks:load', function() {
   });
 });
 
+// ページのトップ
 jQuery(function() {
   var appear = false;
   var pagetop = $('#page_top');
@@ -57,6 +59,7 @@ jQuery(function() {
   });
 });
 
+// ヘッダー
 $(document).on('turbolinks:load', function() {
   $(function(){
     $('.js-accordion-title').on('click', function () {

@@ -4,8 +4,9 @@ class LikesController < ApplicationController
     @post = Post.find(params[:post_id])
     like = @post.likes.new(user_id: current_user.id)
     like.save
-    @likes = current_user.like_posts.pluck(:id)
-    @like_post = Post.where(id: @likes)
+    # @likes = current_user.like_posts.pluck(:id)
+    # @like_post = Post.where(id: @likes)
+    @current_user_like_list = params[:current_user_like_list] == 'true'
   end
 
   def destroy
