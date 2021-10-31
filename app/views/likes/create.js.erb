@@ -1,5 +1,5 @@
 <% if @current_user_like_list %>
-  $("#like_posts_list").prepend("<%= j(render 'posts/post_like_content', post: @post, current_user_like_list: @current_user_like_list ) %>");
+  $("#like_posts_list").html("<%= j(render 'posts/create_like', like_post: @like_post, current_user_like_list: @current_user_like_list ) %>");
   $(".like_btn_<%= @post.id %>").html("<%= j(render "likes/like", post: @post, current_user_like_list: @current_user_like_list ) %>");
 <% else %>
   $(".like_btn_<%= @post.id %>").html("<%= j(render "likes/like", post: @post, current_user_like_list: @current_user_like_list ) %>");
