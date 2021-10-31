@@ -39,7 +39,7 @@
               </li>
               <li class="nav-item text-center header-container">
                 <% if unchecked_notifications.any? %>
-                  <%= link_to "Notice",notifications_path, class: 'nav-link text-light fas fa-bell header-title' %>
+                  <%= link_to "●Notice",notifications_path, class: 'nav-link text-warning header-title' %>
                 <% else %>
                   <%= link_to "Notice",notifications_path, class: 'nav-link text-light header-title' %>
                 <% end %>
