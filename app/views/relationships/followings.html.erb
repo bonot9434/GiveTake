@@ -1,6 +1,8 @@
 <div class="container">
   <div class="row">
-    <h2 class="col-sm-4 mt-3">Follow Users</h2>
+    <h2 class="col-sm-4 mt-3">
+      <%= @user.name %>'s Follow Users
+    </h2>
     <% if @user == current_user %>
       <div class="col-sm-4 offset-4 mt-3">
         <%= form_with url: user_followings_search_path(@user),method: :get, local: true do |f| %>

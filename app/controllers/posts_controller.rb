@@ -18,6 +18,11 @@ class PostsController < ApplicationController
     @tag_rank = Tag.find(PostTag.group(:tag_id).order('count(tag_id) desc').limit(10).pluck(:tag_id))
   end
 
+  # def giveindex
+  #   # @givetag = Tag.where(name: "Give")
+  #   # @givepost = @posts.where(@give)
+  # end
+
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
