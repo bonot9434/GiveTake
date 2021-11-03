@@ -19,6 +19,7 @@
 //= require turbolinks
 //= require_tree .
 
+// タブ
 $(document).on('turbolinks:load', function() {
   $(function() {
     $('.tab').click(function(){
@@ -31,6 +32,7 @@ $(document).on('turbolinks:load', function() {
   });
 });
 
+// ページのトップ
 jQuery(function() {
   var appear = false;
   var pagetop = $('#page_top');
@@ -54,5 +56,17 @@ jQuery(function() {
   pagetop.click(function () {
     $('body, html').animate({ scrollTop: 0 }, 500); //0.5秒かけてトップへ戻る
     return false;
+  });
+});
+
+// ヘッダー
+$(document).on('turbolinks:load', function() {
+  $(function(){
+    $('.js-accordion-title').on('click', function () {
+      /*クリックでコンテンツを開閉*/
+      $(this).next().slideToggle(200);
+      /*矢印の向きを変更*/
+      $(this).toggleClass('open', 200);
+    });
   });
 });

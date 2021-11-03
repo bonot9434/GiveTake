@@ -18,6 +18,12 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+// サインアップ、ログイン画面
+.sign_log:first-letter {
+  font-size: 1.5em;
+  color: #1e50a2;
+}
+
 // ハンバーガーメニュー
 .navbar-light .navbar-toggler {
  border-color: rgba(0,0,0,0);
@@ -36,6 +42,40 @@ header {
 .header-container .header-title:hover {
   box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.5);
   transform: translateY(-5px);
+}
+
+.accordion-container .accordion-title {
+  color: #fff;
+  // background: #343a40 ;
+  cursor: pointer
+}
+// 最初は隠しておく
+.accordion-content {
+  display: none;
+}
+// トグルの位置固定
+.accordion-title{
+  position: relative;
+}
+// トグルのデザイン
+.accordion-title:after {
+  content: "";
+  position: absolute;
+  right: 25px;
+  top: 38%;
+  transition: all 0.2s ease-in-out;
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-top: solid 2px #fff;
+  border-right: solid 2px #fff;
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+.accordion-title.open:after {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  top: 45%;
 }
 
 // 全体に表示
@@ -71,24 +111,6 @@ footer {
 }
 
 
-// .topbtn-up,
-// .topbtn-in {
-//   font-size: 30px;
-//   border: 2px solid #ffffff;
-//   border-radius: 0;
-//   color: #ffffff;
-//   background: #000000;
-//   text-decoration: none;
-//   padding: 3rem;
-// }
-
-// .topbtn-up:hover,
-// .topbtn-in:hover {
-//   color: #000000;
-//   background: #ffffff;
-//   text-decoration: none;
-// }
-
 // リンク下線なし
 a {
  color: #000;
@@ -104,6 +126,8 @@ a:hover {
  color: #1e50a2;
 }
 
+// プロフィール画像
 .icon {
  border-radius: 50%;
 }
+
