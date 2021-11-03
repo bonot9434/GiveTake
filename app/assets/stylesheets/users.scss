@@ -7,6 +7,11 @@
   font-size: 20px;
 }
 
+.user_gti:first-letter {
+  font-size: 1.5em;
+  color: #1e50a2;
+}
+
 // マイページタブ部分
 .tab {
   width: 100%;
@@ -34,3 +39,16 @@
   box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.5);
   transform: translateY(-1px);
 }
+
+// ユーザー一覧ソート
+.asc:after{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: " \f0de";
+}
+
+.desc:after{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: " \f0dd";}
+

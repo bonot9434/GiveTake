@@ -9,8 +9,9 @@
       <% end %>
     </div>
     <div class="col-sm-8">
-      <h3 class="mt-3"><i class="fas fa-tag"></i><%=@tag.name.truncate(10) %>のPost</h3>
-      <%= render 'posts/post', posts: @tag_posts, current_user_like_list: @current_user_like_list %>
+      <h3 class="mt-3"><i class="fas fa-tag"></i>TakeのPost</h3>
+      <%= render 'posts/post', posts: @take_posts, current_user_like_list: @current_user_like_list %>
     </div>
   </div>
 </div>
+

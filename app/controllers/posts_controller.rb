@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :index]
+  before_action :authenticate_user!
   before_action :identification, only: [:edit]
 
   def new
@@ -9,12 +9,26 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @user = @post.user
-    @post_comment = PostComment.new
     @post_tags = @post.tags
+    @post_comment = PostComment.new
   end
 
   def index
-    @posts = Post.all.order(id: "DESC")
+    @posts = Post.all
+    @tag_rank = Tag.find(PostTag.group(:tag_id).order('count(tag_id) desc').limit(10).pluck(:tag_id))
+  end
+
+  def giveposts
+    tag_ids = Tag.where(name: "Give")
+    give_posts_ids = PostTag.where(tag_id: tag_ids).pluck('post_id')
+    @give_posts = Post.where(id: give_posts_ids)
+    @tag_rank = Tag.find(PostTag.group(:tag_id).order('count(tag_id) desc').limit(10).pluck(:tag_id))
+  end
+
+  def takeposts
+    tag_ids = Tag.where(name: "Take")
+    take_posts_ids = PostTag.where(tag_id: tag_ids).pluck('post_id')
+    @take_posts = Post.where(id: take_posts_ids)
     @tag_rank = Tag.find(PostTag.group(:tag_id).order('count(tag_id) desc').limit(10).pluck(:tag_id))
   end
 
@@ -60,14 +74,14 @@ class PostsController < ApplicationController
   end
 
   private
-  
+
   def identification
     post = Post.find(params[:id])
     if post.user_id != current_user.id
       redirect_to posts_path
     end
   end
-  
+
   def post_params
     params.require(:post).permit(:body, :image)
   end
