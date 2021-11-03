@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   get "users/:id/likes" => "users#likes"
   get "user_search" => "searches#user_search"
   get "search_tag" => "searches#search_tag"
-  # get "giveposts" => "posts#giveindex"
+  get "giveposts" => "posts#giveposts"
   get "map" => "maps#map"
   get "map_show" => "maps#map_show"
   get "industry" => "industries#industry"
