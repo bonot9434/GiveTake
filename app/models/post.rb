@@ -31,10 +31,9 @@ class Post < ApplicationRecord
       visited_id: user_id,
       action: 'post_comment'
     )
-  if notification.visitor_id == notification.visited_id
+    if notification.visitor_id == notification.visited_id
       notification.checked = true
-  end
-
+    end
     notification.save if notification.valid?
   end
 
