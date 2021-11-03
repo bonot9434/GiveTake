@@ -25,6 +25,13 @@ class PostsController < ApplicationController
     @tag_rank = Tag.find(PostTag.group(:tag_id).order('count(tag_id) desc').limit(10).pluck(:tag_id))
   end
 
+  def takeposts
+    tag_ids = Tag.where(name: "Take")
+    take_posts_ids = PostTag.where(tag_id: tag_ids).pluck('post_id')
+    @take_posts = Post.where(id: take_posts_ids)
+    @tag_rank = Tag.find(PostTag.group(:tag_id).order('count(tag_id) desc').limit(10).pluck(:tag_id))
+  end
+
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
