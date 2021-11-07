@@ -73,6 +73,10 @@ gem "refile-mini_magick"
 gem 'rails-i18n'
 gem 'active_hash'
 
+gem 'faker'
+
+gem 'gimei'
+
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
