@@ -10,7 +10,7 @@ class SearchesController < ApplicationController
     elsif @model == 'take'
       @users = User.where('take LIKE ?', '%'+@content+'%')
     end
-    render "users/index"
+    render "searches/search_users"
   end
 
   def followings_search
@@ -46,6 +46,14 @@ class SearchesController < ApplicationController
     @tag = Tag.find(params[:tag_id])
     @tag_posts = @tag.posts
     @tag_rank = Tag.find(PostTag.group(:tag_id).order('count(tag_id) desc').limit(10).pluck(:tag_id))
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
+  end
+
+  def sort_column
+    User.column_names.include?(params[:sort]) ? params[:sort] : 'id'
   end
 
 end
