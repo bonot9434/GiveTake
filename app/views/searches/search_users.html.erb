@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <h2 class="col-sm-4 mt-3">
+      Users
+    </h2>
+    <div class="col-sm-4 offset-4 mt-3">
+      <%= form_with url: user_search_path,method: :get, local: true do |f| %>
+        <%= f.text_field :content %>
+        <%= f.select :model,options_for_select({"User"=>"user","Give"=>"give","Take"=>"take"})%>
+        <%= f.submit'検索', class: "btn btn-outline-success btn-sm" %>
+      <% end %>
+    </div>
+  </div>
+    <% if @users.exists? %>
+      <table class="table">
+  <thead>
+    <tr>
+      <th class="col-sm-2">Name</th>
+      <th class="col-sm-3">Give</th>
+      <th class="col-sm-3">Take</th>
+      <th class="col-sm-2">業界</th>
+      <th class="col-sm-2">勤務地</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td>
+          <%= link_to user_path(user) do %>
+            <p><%= attachment_image_tag user, :profile_image, :fill, 80, 80, fallback: "noimage.png", size:'80x80', class: "icon" %></p>
+            <p><%= user.name %></p>
+          <% end %>
+        </td>
+        <td>
+          <%= user.give %>
+        </td>
+        <td>
+          <%= user.take %>
+        </td>
+        <td>
+          <%= user.industry.name %>
+        </td>
+        <td>
+          <%= user.prefecture.name %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+    <% else %>
+      <p>ユーザーはいません</p>
+    <% end %>
+</div>

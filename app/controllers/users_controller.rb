@@ -52,8 +52,6 @@ class UsersController < ApplicationController
       redirect_to user_path
     end
   end
-
-
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image, :give, :take, :industry_id, :prefecture_id)
   end
