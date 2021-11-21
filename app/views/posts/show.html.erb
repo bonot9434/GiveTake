@@ -46,7 +46,9 @@
           <div class="offset-1 mt-3"><%= l post_comment.created_at %></div>
           <div class="row">
             <div class="col-sm-3 offset-2">
-              <p><%= attachment_image_tag post_comment.user, :profile_image, :fill, 80, 80, fallback: "noimage.png", size:'80x80', class: "icon" %></p>
+              <%= link_to user_path(post_comment.user) do %>
+                <p><%= attachment_image_tag post_comment.user, :profile_image, :fill, 80, 80, fallback: "noimage.png", size:'80x80', class: "icon" %></p>
+              <% end %>
             </div>
             <div class="col-sm-5 mb-3">
               <p><%= post_comment.user.name %></p>
