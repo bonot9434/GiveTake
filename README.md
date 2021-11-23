@@ -44,3 +44,7 @@ https://docs.google.com/spreadsheets/d/1GdPTf0yaAhdzs2sYoUv20nlsJ8iFwZ0RAMPOlWqE
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
+
+## ER図
+
+![er_givetake](https://user-images.githubusercontent.com/86827055/143083024-1b4687d1-4d10-47d4-b2ff-9d294f9f5e6b.png)
